@@ -1,0 +1,51 @@
+class Solution {
+public:
+    bool validPalindrome(string s) {
+        int n=s.size();
+        int left = 0;
+        int right = n - 1;
+        int count1 = 0;
+
+        while(left < right){
+            if(s[left] == s[right])
+            {
+				
+                left++;
+                right--;
+            }
+            else
+            {
+				
+               left++;    
+            }
+            if(count1 > 1)
+                break;
+        }
+        left = 0;
+        right = n - 1;
+        int count2 = 0;
+
+        while(left < right){
+            if(s[left] == s[right])
+            {
+                left++;
+                right--;
+            }
+            else
+            {
+                count2++;
+                right--;  
+            }
+            if(count2 > 1)
+                break;
+
+        }
+
+        if(count1 == 1 || count2 == 1)   
+            return true;
+        if(count1 == 0 || count2 == 0)   
+            return true;
+
+        return false;
+    }
+};
